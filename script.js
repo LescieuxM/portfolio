@@ -26,3 +26,12 @@ function moveSlide(step) {
 
 // Initialiser le carrousel en affichant la première slide
 showSlide(currentSlide);
+
+// Sélectionner les éléments
+const mobileMenu = document.getElementById("mobile-menu");
+const navLinks = document.getElementById("nav-links");
+
+// Ajouter l'événement de clic sur le menu hamburger
+mobileMenu.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+});

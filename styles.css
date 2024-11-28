@@ -13,28 +13,28 @@ body {
     line-height: 1.6;
 }
 
-/* Menu de navigation */
+/* Style de base pour le menu */
 nav {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     background-color: #333;
-    padding: 1rem 0;
+    padding: 1rem;
     z-index: 1000;
 }
 
-nav ul {
+nav .nav-links {
     display: flex;
     justify-content: center;
     list-style: none;
 }
 
-nav ul li {
-    margin: 0 1.5rem;
+nav .nav-links li {
+    margin: 0 1rem;
 }
 
-nav ul li a {
+nav .nav-links li a {
     color: #e0e0e0;
     text-decoration: none;
     font-size: 1.1rem;
@@ -44,9 +44,67 @@ nav ul li a {
     transition: color 0.3s ease;
 }
 
-nav ul li a:hover {
+nav .nav-links li a:hover {
     color: #00bcd4; /* Couleur futuriste */
     text-shadow: 0 0 10px rgba(0, 188, 212, 0.6); /* Effet lumineux */
+}
+
+/* Style du menu hamburger pour les petits écrans */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 25px;
+    width: 30px;
+    cursor: pointer;
+}
+
+.menu-toggle .bar {
+    height: 4px;
+    width: 30px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+    /* Cacher les liens de navigation classiques sur petit écran */
+    nav .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: #333;
+        padding: 1rem 0;
+        border-top: 2px solid #00bcd4;
+        text-shadow: 0 0 10px rgba(0, 188, 212, 0.6); /* Effet lumineux */
+    }
+
+    nav .nav-links.active {
+        display: flex;
+    }
+
+    /* Afficher le menu hamburger uniquement sur mobile */
+    .menu-toggle {
+        display: flex;
+    }
+
+    /* Style des liens du menu hamburger */
+    nav .nav-links li {
+        margin: 1rem 0;
+    }
+
+    nav .nav-links li a {
+        font-size: 1.2rem;
+        color: #00bcd4;
+        text-shadow: 0 0 10px rgba(0, 188, 212, 0.6); /* Effet lumineux */
+    }
+
+    nav .nav-links li a:hover {
+        color: #fff; /* Changement de couleur au survol */
+    }
 }
 
 /* Sections */
